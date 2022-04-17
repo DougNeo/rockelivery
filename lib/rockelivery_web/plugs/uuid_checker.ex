@@ -9,7 +9,7 @@ defmodule RockeliveryWeb.Plugs.UUIDChecker do
   def call(%Conn{params: %{"id" => id}} = conn, _opts) do
     case UUID.cast(id) do
       :error -> render_error(conn)
-      {:ok, uuid} -> conn
+      {:ok, _uuid} -> conn
     end
   end
 
