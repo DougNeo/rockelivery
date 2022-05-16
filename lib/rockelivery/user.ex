@@ -3,7 +3,7 @@ defmodule Rockelivery.User do
   import Ecto.Changeset
 
   alias Ecto.Changeset
-  alias Rockelivery.User
+  alias Rockelivery.Order
 
   @primary_key {:id, :binary_id, autogenerate: true}
 
@@ -36,6 +36,8 @@ defmodule Rockelivery.User do
     struct
     |> changes(params, @update_params)
   end
+
+  def build(changeset), do: apply_action(changeset, :create)
 
   defp changes(changeset, params, fields) do
     changeset
