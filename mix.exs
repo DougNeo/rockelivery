@@ -53,7 +53,8 @@ defmodule Rockelivery.MixProject do
       {:pbkdf2_elixir, "~> 1.3"},
       {:ex_machina, "~> 2.7"},
       {:tesla, "~> 1.4"},
-      {:hackney, "~> 1.18"}
+      {:hackney, "~> 1.18"},
+      {:bypass, "~> 2.1", only: :test}
     ]
   end
 

@@ -1,5 +1,6 @@
 {
   "skip_files": [
-    "lib/rockelivery_web/router.ex"
+    "lib/rockelivery_web/router.ex",
+    "test/support"
   ]
 }

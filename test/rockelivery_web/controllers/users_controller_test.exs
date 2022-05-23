@@ -13,16 +13,16 @@ defmodule RockeliveryWeb.UsersControllerTest do
         |> json_response(:created)
 
       assert %{
-               "message" => "User created",
-               "user" => %{
-                 "address" => "Rua do Teste",
-                 "age" => 18,
-                 "cpf" => "12345678901",
-                 "email" => "douglas@email.com",
-                 "id" => _id,
-                 "name" => "Douglas"
-               }
-             } = response
+              "message" => "User created",
+              "user" => %{
+                "address" => "Rua do Teste",
+                "age" => 18,
+                "cpf" => "12345678901",
+                "email" => "douglas@email.com",
+                "id" => _id,
+                "name" => "Douglas"
+              }
+            } = response
     end
 
     test "when there are is some error, returns the error", %{conn: conn} do

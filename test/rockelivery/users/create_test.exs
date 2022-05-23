@@ -19,7 +19,10 @@ defmodule Rockelivery.Users.CreateTest do
 
       response = Create.call(params)
 
-      expected_response = %{age: ["must be greater than or equal to 18"], password: ["should be at least 6 character(s)"]}
+      expected_response = %{
+        age: ["must be greater than or equal to 18"],
+        password: ["should be at least 6 character(s)"]
+      }
 
       assert {:error, %Error{status: :bad_request, result: changeset}} = response
       assert errors_on(changeset) == expected_response

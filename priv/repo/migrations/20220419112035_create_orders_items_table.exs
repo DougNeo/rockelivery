@@ -6,6 +6,5 @@ defmodule Rockelivery.Repo.Migrations.CreateOrdersItemsTable do
       add :order_id, references(:orders, type: :binary_id)
       add :item_id, references(:items, type: :binary_id)
     end
-
   end
 end

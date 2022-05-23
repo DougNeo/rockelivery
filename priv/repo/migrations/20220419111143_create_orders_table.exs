@@ -10,6 +10,5 @@ defmodule Rockelivery.Repo.Migrations.CreateOrdersTable do
 
       timestamps()
     end
-
   end
 end
