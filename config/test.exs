@@ -13,12 +13,15 @@ config :rockelivery, Rockelivery.Repo,
   pool: Ecto.Adapters.SQL.Sandbox,
   pool_size: 10
 
+config :rockelivery, Rockelivery.Users.Create, via_cep_adapter: Rockelivery.ViaCep.ClientMock
+
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
 config :rockelivery, RockeliveryWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4002],
   secret_key_base: "nsUlLKgfNOT9NU/AknHpXtXLf9HBSz2hLrOXjAZuIjKSzBZbHUsoDN3ei8eZoL/H",
   server: false
+
 
 # Print only warnings and errors during test
 config :logger, level: :warn
