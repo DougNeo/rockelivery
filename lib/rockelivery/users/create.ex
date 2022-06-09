@@ -1,6 +1,5 @@
 defmodule Rockelivery.Users.Create do
   alias Rockelivery.{Error, Repo, User}
-  alias Rockelivery.ViaCep.Client
 
   def call(params) do
     cep = Map.get(params, "cep")

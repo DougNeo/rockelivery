@@ -4,6 +4,7 @@ defmodule RockeliveryWeb.UsersControllerTest do
   import Mox
   import Rockelivery.Factory
 
+  alias RockeliveryWeb.Auth.Guardian
   alias Rockelivery.ViaCep.ClientMock
 
   describe "create/2" do
@@ -20,16 +21,16 @@ defmodule RockeliveryWeb.UsersControllerTest do
         |> json_response(:created)
 
       assert %{
-              "message" => "User created",
-              "user" => %{
-                "address" => "Rua do Teste",
-                "age" => 18,
-                "cpf" => "12345678901",
-                "email" => "douglas@email.com",
-                "id" => _id,
-                "name" => "Douglas"
-              }
-            } = response
+               "message" => "User created",
+               "user" => %{
+                 "address" => "Rua do Teste",
+                 "age" => 18,
+                 "cpf" => "12345678901",
+                 "email" => "douglas@email.com",
+                 "id" => _id,
+                 "name" => "Douglas"
+               }
+             } = response
     end
 
     test "when there are is some error, returns the error", %{conn: conn} do
@@ -50,9 +51,16 @@ defmodule RockeliveryWeb.UsersControllerTest do
   end
 
   describe "delete/2" do
+    setup %{conn: conn} do
+      user = insert(:user)
+      {:ok, token, _claims} = Guardian.encode_and_sign(user)
+      conn = put_req_header(conn, "authorization", "Bearer #{token}")
+
+      {:ok, conn: conn, user: user}
+    end
+
     test "when the user exists, deletes the user", %{conn: conn} do
       id = "2c508cc3-1d13-4080-895a-691f66b954f8"
-      insert(:user)
 
       response =
         conn

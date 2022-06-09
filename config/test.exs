@@ -22,7 +22,6 @@ config :rockelivery, RockeliveryWeb.Endpoint,
   secret_key_base: "nsUlLKgfNOT9NU/AknHpXtXLf9HBSz2hLrOXjAZuIjKSzBZbHUsoDN3ei8eZoL/H",
   server: false
 
-
 # Print only warnings and errors during test
 config :logger, level: :warn
 
