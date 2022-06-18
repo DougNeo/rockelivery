@@ -1,7 +1,6 @@
 defmodule RockeliveryWeb.UsersController do
   use RockeliveryWeb, :controller
   alias Rockelivery.User
-  alias RockeliveryWeb.FallbackController
   alias RockeliveryWeb.Auth.Guardian
 
   def create(conn, params) do
