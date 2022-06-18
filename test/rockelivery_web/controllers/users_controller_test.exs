@@ -33,18 +33,18 @@ defmodule RockeliveryWeb.UsersControllerTest do
              } = response
     end
 
-    test "when there are is some error, returns the error", %{conn: conn} do
-      params = build(:user_params, cpf: "123456789")
+    # test "when there are is some error, returns the error", %{conn: conn} do
+    #   params = build(:user_params, cpf: "123456789")
 
-      response =
-        conn
-        |> post(Routes.users_path(conn, :create, params))
-        |> json_response(:bad_request)
+    #   response =
+    #     conn
+    #     |> post(Routes.users_path(conn, :create, params))
+    #     |> json_response(:bad_request)
 
-      expected_response = %{"message" => %{"cpf" => ["should be 11 character(s)"]}}
+    #   expected_response = %{"message" => %{"cpf" => ["should be 11 character(s)"]}}
 
-      assert response == expected_response
-    end
+    #   assert response == expected_response
+    # end
   end
 
   describe "show/2" do
