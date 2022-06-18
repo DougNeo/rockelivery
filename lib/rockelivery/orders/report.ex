@@ -18,7 +18,7 @@ defmodule Rockelivery.Orders.Report do
         |> Enum.map(&parse_line/1)
       end)
 
-      File.write(filename, order_list)
+    File.write(filename, order_list)
   end
 
   defp parse_line(%Order{user_id: user_id, payment_method: payment_method, items: items}) do
